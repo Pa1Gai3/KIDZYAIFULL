@@ -1,0 +1,44 @@
+@import "tailwindcss";
+@config "./tailwind.config.js";
+
+/* Custom Scrollbar Handling from original HTML styles */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+/* Utility for scroll reveal */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Print Styles for PDF Generation */
+@media print {
+    @page {
+        size: landscape;
+        margin: 0;
+    }
+
+    body,
+    #root {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        background: white;
+    }
+}
